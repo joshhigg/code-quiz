@@ -1,0 +1,55 @@
+header {
+    text-align: right;
+    padding: 20px 30px;
+    font-size: 20px;
+}
+
+body {
+    background-color: lemonchiffon;
+}
+
+.intro {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.intro p {
+    margin: 40px 0;
+    font-size: 20px;
+    line-height: 2;
+}
+
+.intro button {
+    font-size: 25px;
+    padding: 5px 30px;
+}
+
+.quiz-box {
+    width: 30%;
+    margin: auto;
+    position: absolute;
+    top: 160px;
+    left: 500px;
+
+}
+
+.options-wrapper button{
+    margin: 10px 0;
+    display: block;
+    font-size: 20px;
+}
+
+.question {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.result-message {
+    margin-top: 30px;
+    font-size: 20px;
+}

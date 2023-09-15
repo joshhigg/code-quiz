@@ -18,15 +18,13 @@
             <button class="start-button">Start</button>
         </div>
 
-        <div class="quiz-box">
+        <div class="quiz-box" hidden>
             <div class="question">Question</div>
-            <div class="options-wrapper">
-                <button class="option-1" class="options">1.</button>
-                <button class="option-2" class="options">2.</button>
-                <button class="option-3" class="options">3.</button>
-                <button class="option-4" class="options">4.</button>
+            <div class="options-wrapper" id="choices">
+                
             </div>
-            <div class="result-message">Result</div>
+            <div class="result-good" hidden>Correct 😁 Good job!</div>
+            <div class="result-bad" hidden>Incorrect 😔 -10 seconds from time left</div>
         </div>
 
         <!-- high scores -->

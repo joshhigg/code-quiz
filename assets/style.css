@@ -5,7 +5,9 @@ header {
 }
 
 body {
-    background-color: lemonchiffon;
+    background-color: rgb(160, 206, 217);
+    color: rgb(33, 78, 52);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .intro {
@@ -54,4 +56,30 @@ h1 {
     font-size: 20px;
 }
 
+.high-score-entry {
+    width: 30%;
+    margin: auto;
+    position: absolute;
+    top: 160px;
+    left: 500px;
+    font-size: 30px;
+}
 
+.high-score-entry h3 {
+    font-size: 40px;
+}
+
+#score-received {
+    font-weight: bold;
+}
+
+.form-instructions {
+    font-size: 20px;
+}
+
+button {
+    color: rgb(255, 255, 199);
+    background-color: rgb(131, 117, 105);
+    box-shadow: 3px 3px rgb(176, 65, 62);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

@@ -7,8 +7,11 @@ var choicesDiv = document.querySelector("#choices");
 var resultGood = document.querySelector(".result-good");
 var resultBad = document.querySelector(".result-bad");
 var timerEl = document.querySelector(".time-left");
+var time = document.querySelector(".timer");
+var highscoreEntry = document.querySelector(".high-score-entry");
+var scoreReceived = document.querySelector("#score-received");
 var timer;
-var timerCount = 60;
+var timerCount = 75;
 var currentQuestion = 0;
 
 var questions = [{
@@ -56,8 +59,9 @@ function startTimer() {
         } if (timerCount === 0) {
             console.log("game over cause time")
             quizBox.hidden = true
-            //high score screen
-
+            highscoreEntry.hidden = false
+            scoreReceived.textContent = timerCount + "!";
+            time.hidden = true
         }
     }, 1000);
 }
@@ -89,7 +93,7 @@ function checkAns(event) {
     setTimeout(function(){
         resultGood.hidden = true
         resultBad.hidden = true
-    }, 1000);
+    }, 1500);
 
     if(currentQuestion < questions.length-1) {
     currentQuestion++
@@ -97,9 +101,10 @@ function checkAns(event) {
     } else {
         console.log("game over")
         quizBox.hidden = true
-        //take to the high score screen
+        highscoreEntry.hidden = false
+        scoreReceived.textContent = timerCount + "!";
+        time.hidden = true
     }
-    //if it is the last question, go to highscore screen
 }
 
 

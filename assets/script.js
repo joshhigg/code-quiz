@@ -13,7 +13,7 @@ var initialsEntered = document.querySelector("#initials-entered");
 var submit = document.querySelector("#submit");
 var highscoreList = document.querySelector(".high-score-list")
 var highscoreDisplay = document.querySelector(".high-score-display")
-var highscores = JSON.parse(localStorage.getItem("highScores")) || [];
+var thisList = document.querySelector(".this-list")
 
 var MAX_HIGH_SCORES = 10
 var timer;
@@ -119,24 +119,27 @@ submit.addEventListener("click", function(event) {
     event.preventDefault();
     var initials = initialsEntered.value
     var finalScore = timerCount
+
+    const HighScore = JSON.parse(localStorage.getItem('myList')) || [];
     var score = {
-        score: finalScore,
-        name: initials
+        name: initials,
+        score: finalScore
     }
-    highscores.push(score);
-
-    highscores.sort( (a,b) => b.score - a.score)
-    highscores.splice(10);
-
-    localStorage.setItem('highscores', JSON.stringify(highscores));
-    console.log(highscores)
-    // localStorage.setItem("initials", JSON.stringify(initials));
+    HighScore.push(score);
+    localStorage.setItem('myList', JSON.stringify(HighScore));
     highscoreEntry.hidden = true
     displayHighscores()
 });
 
 function displayHighscores() {
     highscoreList.hidden = false
+    const HighScore = JSON.parse(localStorage.getItem('myList'));
+    HighScore.forEach(score => {
+        console.log(score)
+        var li = document.createElement("li")
+        li.textContent = JSON.stringify(score, null, 2)
+        thisList.appendChild(li);
+      });
 }
 
 

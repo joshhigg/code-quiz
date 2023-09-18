@@ -2,7 +2,6 @@ var quizBox = document.querySelector(".quiz-box");
 var intro = document.querySelector(".intro");
 var startButton = document.querySelector(".start-button");
 var question = document.querySelector(".question");
-
 var choicesDiv = document.querySelector("#choices");
 var resultGood = document.querySelector(".result-good");
 var resultBad = document.querySelector(".result-bad");
@@ -10,6 +9,13 @@ var timerEl = document.querySelector(".time-left");
 var time = document.querySelector(".timer");
 var highscoreEntry = document.querySelector(".high-score-entry");
 var scoreReceived = document.querySelector("#score-received");
+var initialsEntered = document.querySelector("#initials-entered");
+var submit = document.querySelector("#submit");
+var highscoreList = document.querySelector(".high-score-list")
+var highscoreDisplay = document.querySelector(".high-score-display")
+var highscores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+var MAX_HIGH_SCORES = 10
 var timer;
 var timerCount = 75;
 var currentQuestion = 0;
@@ -62,6 +68,7 @@ function startTimer() {
             highscoreEntry.hidden = false
             scoreReceived.textContent = timerCount + "!";
             time.hidden = true
+            clearInterval(timer)
         }
     }, 1000);
 }
@@ -104,12 +111,33 @@ function checkAns(event) {
         highscoreEntry.hidden = false
         scoreReceived.textContent = timerCount + "!";
         time.hidden = true
+        clearInterval(timer)
     }
+}
+
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+    var initials = initialsEntered.value
+    var finalScore = timerCount
+    var score = {
+        score: finalScore,
+        name: initials
+    }
+    highscores.push(score);
+
+    highscores.sort( (a,b) => b.score - a.score)
+    highscores.splice(10);
+
+    localStorage.setItem('highscores', JSON.stringify(highscores));
+    console.log(highscores)
+    // localStorage.setItem("initials", JSON.stringify(initials));
+    highscoreEntry.hidden = true
+    displayHighscores()
+});
+
+function displayHighscores() {
+    highscoreList.hidden = false
 }
 
 
 startButton.addEventListener("click", startQuiz);
-//add listener for the option buttons.  One for if it was correct and one if it was incorrect?
-
-//create end quiz and evaluate how much time is left
-//Add highscore at the end and save it

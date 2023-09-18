@@ -9,12 +9,12 @@
       <body>
         <header>
             <div class="timer">
-                <p>Time Left: <span class="time-left">60</span></p>
+                <p>Time Left: <span class="time-left">75</span></p>
             </div>
         </header>
         <div class="intro">
             <h1>Coding Quiz</h1>
-            <p>You will have one minute to complete the quiz.<br>If you select an incorrect answer, 10 seconds will be deducted from your remaining time.<br>Once you are finished, you will be able to add your score to the high scores list!</p>
+            <p>You will have 75 seconds to complete the quiz.<br>If you select an incorrect answer, 10 seconds will be deducted from your remaining time.<br>Once you are finished, you will be able to add your score to the high scores list!</p>
             <button class="start-button">Start</button>
         </div>
 
@@ -31,6 +31,12 @@
             <h3>You're finished!</h3>
             <p>Your score is <span id="score-received"></span></p>
             <p class="form-instructions">Enter your intials below to save your Highscore</p>
+            <input id="initials-entered"><button id="submit">Submit</button>
+        </div>
+
+        <div class="high-score-list" hidden>
+            <h3>High Scores</h3>
+            <div class="high-score-display"></div>
 
         </div>
         <!-- high scores -->
